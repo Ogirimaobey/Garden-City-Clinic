@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garden City Clinic - A Fundbridge Proposal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest-green: #004D40;
+            --soft-coral: #E57373;
+            --off-white: #F8F9FA;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: 'Inter', sans-serif;
+            color: var(--off-white);
+            background-color: #0d1a1f;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .background-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 15% 25%, var(--forest-green) 0%, transparent 40%),
+                radial-gradient(circle at 85% 75%, var(--soft-coral) 0%, transparent 40%);
+            animation: fadeIn 3s ease-in-out;
+            filter: blur(80px); /* Creates the soft, ethereal look */
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* --- Glassmorphism Panes --- */
+        .glass-pane {
+            position: absolute;
+            z-index: 1;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .pane-1 { width: 200px; height: 150px; top: 10%; left: 15%; animation-delay: 0s; }
+        .pane-2 { width: 150px; height: 150px; top: 25%; left: 40%; animation-delay: 3s; }
+        .pane-3 { width: 250px; height: 180px; top: 60%; left: 5%; animation-delay: 6s; }
+        .pane-4 { width: 180px; height: 180px; top: 15%; right: 10%; animation-delay: 2s; }
+        .pane-5 { width: 220px; height: 160px; top: 65%; right: 20%; animation-delay: 8s; }
+
+
+        .clinic-header {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            z-index: 3;
+            text-align: right;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        .clinic-header a {
+            color: var(--off-white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        .clinic-header a:hover {
+            opacity: 1;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -2px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            animation: fadeInDown 1.5s ease-out;
+        }
+
+        p {
+            font-size: 1.25rem;
+            margin: 10px 0 30px 0;
+            font-weight: 400;
+            opacity: 0.9;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            animation: fadeInDown 1.5s ease-out 0.3s;
+            animation-fill-mode: backwards;
+        }
+
+        .cta-button {
+            background-color: var(--soft-coral);
+            color: var(--off-white);
+            border: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 5px 25px rgba(229, 115, 115, 0.4);
+            animation: fadeInUp 1.5s ease-out 0.6s;
+            animation-fill-mode: backwards;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05) translateY(-3px);
+            background-color: #e88a8a; /* A slightly lighter coral */
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            p { font-size: 1rem; }
+            .glass-pane { display: none; } /* Hide panes on small screens for clarity */
+            .clinic-header {
+                 top: 15px;
+                 right: 15px;
+                 font-size: 0.8em;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="clinic-header">
+        <a href="mailto:gardencityclinicltd@gmail.com">gardencityclinicltd@gmail.com</a><br>
+        <a href="tel:08068902396">08068902396</a>
+    </header>
+
+    <div class="background-gradient"></div>
+
+    <div class="glass-pane pane-1"></div>
+    <div class="glass-pane pane-2"></div>
+    <div class="glass-pane pane-3"></div>
+    <div class="glass-pane pane-4"></div>
+    <div class="glass-pane pane-5"></div>
+
+    <main class="content-wrapper">
+        <h1>Garden City Clinic</h1>
+        <p>Your Health. Our Focus.</p>
+        <a href="#appointment" class="cta-button">Book an Appointment</a>
+    </main>
+
+</body>
+</html>
